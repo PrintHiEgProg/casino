@@ -22,7 +22,8 @@ function App() {
     const savedcheckYearsOld = localStorage.getItem("checkYearsOld");
     return savedcheckYearsOld !== null ? JSON.parse(savedcheckYearsOld) : false;
   });
-  const firstName = useState("Dismoir");
+
+  const firstName = tg.WebAppUser.first_name;
   
 
   useEffect(() => {
