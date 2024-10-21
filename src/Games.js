@@ -1,5 +1,4 @@
 import "./App.css";
-import avatar from "./person.jpg";
 import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 

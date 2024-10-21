@@ -6,11 +6,8 @@ import { useSpring, animated } from "react-spring";
 function Profile({ newBalance, setNewBalance, firstName }) {
     const [isVisibleProfile, setIsVisibleProfile] = useState(false);
     const [balance, setBalance] = useState(0);
-    const [photoAvatar, setPhotoAvatar] = useState()
-    
-  //const tg = window.Telegram.WebApp;
-  //const photoAvatar = tg.WebAppUser.photo_url
-  //const firstName = tg.initDataUnsafe.user.first_name; 
+  const tg = window.Telegram.WebApp;
+  const [photoAvatar, setPhotoAvatar] = tg.WebAppUser.photo_url
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisibleProfile(true);
@@ -43,11 +40,11 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   }, []);  
     
     const ReplenishmentOfTheBalance = () => {
-      //tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
+      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
     }
 
     const WithDrawalOfFunds = () => {
-      //tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds")
+      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds")
     };
     
   return (
