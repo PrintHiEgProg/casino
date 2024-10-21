@@ -15,7 +15,7 @@ import Games from "./Games.js";
 
 
 function App() {
-  //const tg = window.Telegram.WebApp;
+  const tg = window.Telegram.WebApp;
   const [isOpen, setIsOpen] = useState(false);
   const [newBalance, setNewBalance] = useState(7345.36);
   const [checkYearsOld, setCheckYearsOld] = useState(() => {
@@ -23,8 +23,7 @@ function App() {
     return savedcheckYearsOld !== null ? JSON.parse(savedcheckYearsOld) : false;
   });
 
-  //const firstName = tg.initDataUnsafe.user.first_name;
-  const firstName = useState("Артемий");
+  const firstName = tg.initDataUnsafe.user.first_name;
   
 
   useEffect(() => {
