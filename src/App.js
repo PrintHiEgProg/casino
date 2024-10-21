@@ -5,14 +5,12 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import Cookies from "js-cookie";
-import "./App.css";
 import Header from "./Header.js";
 import Menu from "./Menu.js";
 import Main from "./Main.js";
 import Profile from "./Profile.js";
 import Games from "./Games.js";
-
+import SlotsStarWars from "./SlotsStarWars.js";
 
 function App() {
   const tg = window.Telegram.WebApp;
