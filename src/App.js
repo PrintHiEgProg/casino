@@ -78,6 +78,12 @@ function App() {
               <Games newBalance={newBalance} setNewBalance={setNewBalance} />
             }
           />
+          <Route
+            path="/games/slots/star-wars"
+            element={
+              <SlotsStarWars />
+            }
+          />
         </Routes>
       </Router>
     </div>
