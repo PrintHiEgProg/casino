@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import CheckYearsOld from "./CheckYearsOld.js";
 
 function Main({ newBalance, setNewBalance, firstName }) {
-  //const tg = window.Telegram.WebApp;
+  const tg = window.Telegram.WebApp;
   const [isVisible, setIsVisible] = useState(true);
   const [isVisibleBalance, setIsVisibleBalance] = useState(false);
   const [isVisibleGames, setIsVisibleGames] = useState(false);
@@ -102,7 +102,7 @@ function Main({ newBalance, setNewBalance, firstName }) {
 
   const ReplenishmentOfTheBalance = () => {
     if (checkYearsOld) {
-      //tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
+      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
     }
   };
 

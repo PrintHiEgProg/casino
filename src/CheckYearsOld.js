@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 function CheckYearsOld() {
-  //const tg = window.Telegram.WebApp;
+  const tg = window.Telegram.WebApp;
   const [isChecked, setIsChecked] = useState(false);
   const [message, setMessage] = useState("");
   const [isVisible, setIsVisible] = useState(true);
@@ -23,7 +23,7 @@ function CheckYearsOld() {
   };
     
     const handleLeave = () => {
-      //tg.close()
+      tg.close()
   }
 
   useEffect(() => {
