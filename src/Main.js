@@ -116,6 +116,12 @@ function Main({ newBalance, setNewBalance, firstName, UserId }) {
   const handleGoGame = () => {
     navigate(localStorage.getItem("lastGameURL"));
   };
+    
+    const GoToSlotStarWars = () => {
+      if (checkYearsOld) {
+        navigate("/games/slots/star-wars");
+      }
+  }
 
   return (
     <div className="Main">
@@ -182,7 +188,7 @@ function Main({ newBalance, setNewBalance, firstName, UserId }) {
                         Покер Classic
                       </div>
                     </div>
-                    <div className="games-box-flex-box-image-item">
+                                      <div className="games-box-flex-box-image-item" onClick={GoToSlotStarWars}>
                       <img
                         className="games-box-flex-box-image-item-image"
                         src={starWarsSlots}
