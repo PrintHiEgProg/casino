@@ -7,7 +7,7 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   const [isVisibleProfile, setIsVisibleProfile] = useState(false);
   const [balance, setBalance] = useState(0);
   const tg = window.Telegram.WebApp;
-  const [photoAvatar, setPhotoAvatar] = tg.WebAppUser.photo_url
+  const [photoAvatar, setPhotoAvatar] = tg.initDataUnsafe.user.photo_url;
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisibleProfile(true);
@@ -24,7 +24,8 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   });
 
   useEffect(() => {
-    if (photoAvatar) {
+      if (photoAvatar) {
+        setPhotoAvatar(tg.initDataUnsafe.user.photo_url);
     } else {
       setPhotoAvatar(avatar);
     }
