@@ -23,7 +23,7 @@ function App() {
     return savedcheckYearsOld !== null ? JSON.parse(savedcheckYearsOld) : false;
   });
 
-  const firstName = tg.WebAppUser.first_name;
+  const firstName = tg.initDataUnsafe.user.first_name;
   
 
   useEffect(() => {
