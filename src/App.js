@@ -25,6 +25,9 @@ function App() {
 
   const firstName = tg.initDataUnsafe.user.first_name;
   
+  useEffect(() => {
+    tg.expand();
+  }, []); 
 
   useEffect(() => {
     // Сохраняем значение count в localStorage при его изменении

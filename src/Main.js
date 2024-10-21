@@ -102,7 +102,8 @@ function Main({ newBalance, setNewBalance, firstName }) {
 
   const ReplenishmentOfTheBalance = () => {
     if (checkYearsOld) {
-      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
+        tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
+        tg.close()
     }
   };
 

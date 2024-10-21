@@ -7,7 +7,7 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   const [isVisibleProfile, setIsVisibleProfile] = useState(false);
   const [balance, setBalance] = useState(0);
   const tg = window.Telegram.WebApp;
-  const [photoAvatar, setPhotoAvatar] = tg.initDataUnsafe.user.photo_url;
+  const [photoAvatar, setPhotoAvatar] = avatar;
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisibleProfile(true);
@@ -25,7 +25,7 @@ function Profile({ newBalance, setNewBalance, firstName }) {
 
   useEffect(() => {
       if (photoAvatar) {
-        setPhotoAvatar(tg.initDataUnsafe.user.photo_url);
+        //setPhotoAvatar(tg.initDataUnsafe.user.photo_url);
     } else {
       setPhotoAvatar(avatar);
     }
@@ -40,11 +40,13 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   }, []);
 
   const ReplenishmentOfTheBalance = () => {
-    tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance");
+      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance");
+      tg.close()
   };
 
   const WithDrawalOfFunds = () => {
-    tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds");
+      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds");
+      tg.close()
   };
 
   return (
