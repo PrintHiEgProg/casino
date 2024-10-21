@@ -4,10 +4,11 @@ import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
 function Profile({ newBalance, setNewBalance, firstName }) {
-    const [isVisibleProfile, setIsVisibleProfile] = useState(false);
-    const [balance, setBalance] = useState(0);
+  const [isVisibleProfile, setIsVisibleProfile] = useState(false);
+  const [balance, setBalance] = useState(0);
   const tg = window.Telegram.WebApp;
-  const [photoAvatar, setPhotoAvatar] = tg.WebAppUser.photo_url
+  //const [photoAvatar, setPhotoAvatar] = tg.WebAppUser.photo_url
+  const [photoAvatar, setPhotoAvatar] = avatar
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisibleProfile(true);
@@ -24,29 +25,32 @@ function Profile({ newBalance, setNewBalance, firstName }) {
   });
 
   useEffect(() => {
-      if (photoAvatar) {
-        
-      } else {
-          setPhotoAvatar(avatar)
+    if (photoAvatar) {
+    } else {
+      setPhotoAvatar(avatar);
     }
-  }, []);    
-    
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setNewBalance(newBalance);
     });
 
     return () => clearTimeout(timer);
-  }, []);  
-    
-    const ReplenishmentOfTheBalance = () => {
-      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance")
-    }
+  }, []);
 
-    const WithDrawalOfFunds = () => {
-      tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds")
-    };
-    
+  const ReplenishmentOfTheBalance = () => {
+    tg.openTelegramLink(
+      "https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance"
+    );
+  };
+
+  const WithDrawalOfFunds = () => {
+    tg.openTelegramLink(
+      "https://t.me/ScroogeCasino777_bot?start=withdrawaloffunds"
+    );
+  };
+
   return (
     <div className="Profile">
       {isVisibleProfile && (
