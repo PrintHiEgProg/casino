@@ -24,7 +24,7 @@ function App() {
   });
 
   const firstName = tg.initDataUnsafe.user.first_name;
-  
+  const UserId = tg.initDataUnsafe.user.id;
   useEffect(() => {
     tg.expand();
   }, []); 
@@ -59,6 +59,7 @@ function App() {
                 newBalance={newBalance}
                 setNewBalance={setNewBalance}
                 firstName={firstName}
+                UserId={UserId}
               />
             }
           />
@@ -69,6 +70,7 @@ function App() {
                 newBalance={newBalance}
                 setNewBalance={setNewBalance}
                 firstName={firstName}
+                UserId={UserId}
               />
             }
           />

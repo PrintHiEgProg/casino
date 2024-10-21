@@ -7,7 +7,7 @@ import { useSpring, animated } from "react-spring";
 import { useNavigate } from "react-router-dom";
 import CheckYearsOld from "./CheckYearsOld.js";
 
-function Main({ newBalance, setNewBalance, firstName }) {
+function Main({ newBalance, setNewBalance, firstName, UserId }) {
   const tg = window.Telegram.WebApp;
   const [isVisible, setIsVisible] = useState(true);
   const [isVisibleBalance, setIsVisibleBalance] = useState(false);

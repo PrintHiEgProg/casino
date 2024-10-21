@@ -3,7 +3,7 @@ import avatar from "./person.jpg"
 import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 
-function Profile({ newBalance, setNewBalance, firstName }) {
+function Profile({ newBalance, setNewBalance, firstName, UserId }) {
   const [isVisibleProfile, setIsVisibleProfile] = useState(false);
   const [balance, setBalance] = useState(0);
   const tg = window.Telegram.WebApp;
@@ -65,7 +65,7 @@ function Profile({ newBalance, setNewBalance, firstName }) {
             />
             <div className="profile-text">
               {firstName}
-              <div className="profile-id">ID: 123456789</div>
+              <div className="profile-id">ID: {UserId}</div>
             </div>
             <div className="profile-balance-text">
               Ваш баланс:
