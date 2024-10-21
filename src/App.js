@@ -10,6 +10,7 @@ import Menu from "./Menu.js";
 import Main from "./Main.js";
 import Profile from "./Profile.js";
 import Games from "./Games.js";
+import SlotStarWars from "./SlotStarWars/SlotStarWars.js"
 
 function App() {
   const tg = window.Telegram.WebApp;
@@ -75,6 +76,12 @@ function App() {
             path="/games"
             element={
               <Games newBalance={newBalance} setNewBalance={setNewBalance} />
+            }
+          />
+          <Route
+            path="/games/slots/star-wars"
+            element={
+              <SlotStarWars newBalance={newBalance} setNewBalance={setNewBalance} />
             }
           />
         </Routes>
