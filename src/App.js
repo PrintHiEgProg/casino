@@ -43,15 +43,14 @@ function App() {
     setIsOpen(false);
   };
 
-  // Проверяем, начинается ли текущий путь с /games
-  const isGamesRoute = location.pathname.startsWith("/games/");
+  
   return (
     <div className="App">
       <Router>
         {isOpen && checkYearsOld && (
           <Menu CloseMenu={CloseMenu} setIsOpen={setIsOpen} />
         )}
-        {checkYearsOld && !isGamesRoute && <Header OpenMenu={OpenMenu} />}
+        {checkYearsOld && <Header OpenMenu={OpenMenu} />}
         <Routes>
           <Route
             path="/"
