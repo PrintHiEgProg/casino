@@ -719,3 +719,8 @@ font-weight: 400;
   filter: blur(10px);
   -webkit-filter: blur(10px);
 }
+
+.iframe-page {
+  width: 100vw;
+  height: 100vh;
+}
