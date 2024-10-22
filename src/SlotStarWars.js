@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-function SlotStarWars() {
+function SlotStarWars({ UserId }) {
+    const [link, setLink] = useState(`https://casino-slot-star-wars-game.vercel.app/index.html?userid=${UserId}`)
   return (
     <div className="SlotStarWars">
       <iframe
         className="iframe-page"
-        src="https://casino-slot-star-wars-game.vercel.app/"
+        src={link}
         frameborder="0"
       ></iframe>
     </div>

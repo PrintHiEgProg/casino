@@ -4,13 +4,14 @@ import {
   Routes,
   Route,
   useNavigate,
+  useLocation,
 } from "react-router-dom";
 import Header from "./Header.js";
 import Menu from "./Menu.js";
 import Main from "./Main.js";
 import Profile from "./Profile.js";
 import Games from "./Games.js";
-import SlotStarWars from "./SlotStarWars.js"
+import SlotStarWars from "./SlotStarWars.js";
 
 function App() {
   const tg = window.Telegram.WebApp;
@@ -23,17 +24,17 @@ function App() {
 
   const firstName = tg.initDataUnsafe.user.first_name;
   const UserId = tg.initDataUnsafe.user.id;
+  const location = useLocation();
+
   useEffect(() => {
     tg.expand();
-  }, []); 
+  }, []);
 
   useEffect(() => {
     // Сохраняем значение count в localStorage при его изменении
     localStorage.setItem("checkYearsOld", checkYearsOld);
-  }, [
-    checkYearsOld
-  ]); // Зависимость от переменных, чтобы эффект срабатывал при их изменении
-  
+  }, [checkYearsOld]); // Зависимость от переменных, чтобы эффект срабатывал при их изменении
+
   const OpenMenu = () => {
     setIsOpen(true);
   };
@@ -42,13 +43,15 @@ function App() {
     setIsOpen(false);
   };
 
+  // Проверяем, начинается ли текущий путь с /games
+  const isGamesRoute = location.pathname.startsWith("/games/");
   return (
     <div className="App">
       <Router>
         {isOpen && checkYearsOld && (
           <Menu CloseMenu={CloseMenu} setIsOpen={setIsOpen} />
         )}
-        {checkYearsOld && <Header OpenMenu={OpenMenu} />}
+        {checkYearsOld && !isGamesRoute && <Header OpenMenu={OpenMenu} />}
         <Routes>
           <Route
             path="/"
@@ -81,7 +84,11 @@ function App() {
           <Route
             path="/games/slots/star-wars"
             element={
-              <SlotStarWars newBalance={newBalance} setNewBalance={setNewBalance} />
+              <SlotStarWars
+                newBalance={newBalance}
+                setNewBalance={setNewBalance}
+                UserId={UserId}
+              />
             }
           />
         </Routes>
