@@ -24,7 +24,6 @@ function App() {
 
   const firstName = tg.initDataUnsafe.user.first_name;
   const UserId = tg.initDataUnsafe.user.id;
-  const location = useLocation();
 
   useEffect(() => {
     tg.expand();
