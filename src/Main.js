@@ -6,7 +6,6 @@ import rulleteClassic from "./rullete-classic.jpeg"
 import { useSpring, animated } from "react-spring";
 import { useNavigate } from "react-router-dom";
 import CheckYearsOld from "./CheckYearsOld.js";
-
 function Main({ newBalance, setNewBalance, firstName, UserId }) {
   const tg = window.Telegram.WebApp;
   const [isVisible, setIsVisible] = useState(true);
@@ -38,6 +37,12 @@ function Main({ newBalance, setNewBalance, firstName, UserId }) {
       setLastGame(false);
     }
   }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("checkYearsOld")) {
+      setCheckYearsOld(false)
+    }
+  }, [])
 
   useEffect(() => {
     // Сохраняем значение count в localStorage при его изменении
