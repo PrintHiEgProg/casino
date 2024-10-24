@@ -36,7 +36,7 @@ function Main({  firstName }) {
         const response = await axios.get(
           `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
         );
-        setNewBalance(response.balance);
+        setNewBalance(response.data.balance);
         console.log(newBalance);
       } catch (err) {
         console.log(err);
