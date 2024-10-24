@@ -19,7 +19,8 @@ function Profile({ firstName }) {
           const response = await axios.get(
             `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
           );
-          setNewBalance(response.balance);
+            setNewBalance(response.balance);
+            console.log(newBalance)
         } catch (err) {}
       };
     }, []);
@@ -53,7 +54,7 @@ function Profile({ firstName }) {
     });
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [newBalance]);
 
   const ReplenishmentOfTheBalance = () => {
       tg.openTelegramLink("https://t.me/ScroogeCasino777_bot?start=replenishmentofthebalance");
