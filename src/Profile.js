@@ -19,7 +19,7 @@ function Profile({ firstName }) {
           const response = await axios.get(
             `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
           );
-          setNewBalance(response.data.balance);
+          setNewBalance(response.balance);
         } catch (err) {}
       };
     }, []);
