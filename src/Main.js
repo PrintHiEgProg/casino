@@ -37,8 +37,12 @@ function Main({  firstName }) {
           `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
         );
         setNewBalance(response.balance);
-      } catch (err) { }
+        console.log(newBalance);
+      } catch (err) {
+        console.log(err);
+      }
     };
+    fetchUserBalance();
   }, []);
 
   useEffect(() => {
@@ -77,7 +81,7 @@ function Main({  firstName }) {
     });
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [newBalance]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

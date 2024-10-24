@@ -21,8 +21,11 @@ function Profile({ firstName }) {
           );
             setNewBalance(response.balance);
             console.log(newBalance)
-        } catch (err) {}
+        } catch (err) {
+            console.log(err)
+        }
       };
+        fetchUserBalance()
     }, []);
 
   useEffect(() => {
