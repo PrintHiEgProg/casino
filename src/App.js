@@ -16,14 +16,13 @@ import SlotStarWars from "./SlotStarWars.js";
 function App() {
   const tg = window.Telegram.WebApp;
   const [isOpen, setIsOpen] = useState(false);
-  const [newBalance, setNewBalance] = useState(7345.36);
   const [checkYearsOld, setCheckYearsOld] = useState(() => {
     const savedcheckYearsOld = localStorage.getItem("checkYearsOld");
     return savedcheckYearsOld !== null ? JSON.parse(savedcheckYearsOld) : false;
   });
 
   const firstName = tg.initDataUnsafe.user.first_name;
-  const UserId = tg.initDataUnsafe.user.id;
+  const userId = tg.initDataUnsafe.user.id;
 
   useEffect(() => {
     tg.expand();
@@ -55,10 +54,9 @@ function App() {
             path="/"
             element={
               <Main
-                newBalance={newBalance}
-                setNewBalance={setNewBalance}
+                
                 firstName={firstName}
-                UserId={UserId}
+                UserId={userId}
               />
             }
           />
@@ -66,26 +64,24 @@ function App() {
             path="/profile"
             element={
               <Profile
-                newBalance={newBalance}
-                setNewBalance={setNewBalance}
+                
                 firstName={firstName}
-                UserId={UserId}
+                UserId={userId}
               />
             }
           />
           <Route
             path="/games"
             element={
-              <Games newBalance={newBalance} setNewBalance={setNewBalance} />
+              <Games  />
             }
           />
           <Route
             path="/games/slots/star-wars"
             element={
               <SlotStarWars
-                newBalance={newBalance}
-                setNewBalance={setNewBalance}
-                UserId={UserId}
+                
+                UserId={userId}
               />
             }
           />

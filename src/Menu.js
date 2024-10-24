@@ -2,7 +2,7 @@ import "./App.css";
 import { useNavigate } from "react-router-dom";
 
 function Menu({ CloseMenu, setIsOpen }) {
-  //const tg = window.Telegram.WebApp;
+  const tg = window.Telegram.WebApp;
   const navigate = useNavigate();
 
   const handleHomeClick = () => {
@@ -19,7 +19,17 @@ function Menu({ CloseMenu, setIsOpen }) {
     setIsOpen(false);
     navigate("/games");
   };
+    
+    const handleNewsClick = () => {
+    setIsOpen(false)
+    tg.openTelegramLink("https://t.me/scrgadapter");
+  }  
 
+    const handleTechHelpClick = () => {
+      setIsOpen(false);
+      tg.openTelegramLink("https://t.me/ScroogeCasinoSupport");
+    };  
+    
   return (
     <div className="Menu">
       <div className="menu">
@@ -47,13 +57,13 @@ function Menu({ CloseMenu, setIsOpen }) {
               Информация
             </div>
           </div>
-          <div className="menu-catalog-item">
+          <div className="menu-catalog-item" onClick={handleNewsClick}>
             <div className="menu-catalog-text">
               <span className="menu-catalog-icon news-icon">.....</span>
               Новости
             </div>
           </div>
-          <div className="menu-catalog-item">
+          <div className="menu-catalog-item" onClick={handleTechHelpClick}>
             <div className="menu-catalog-text">
               <span className="menu-catalog-icon techhelp-icon">.....</span>
               Техподдержка

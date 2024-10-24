@@ -2,12 +2,28 @@ import "./App.css";
 import avatar from "./person.jpg"
 import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
+import axios from "axios";
 
-function Profile({ newBalance, setNewBalance, firstName, UserId }) {
-  const [isVisibleProfile, setIsVisibleProfile] = useState(false);
-  const [balance, setBalance] = useState(0);
-  const tg = window.Telegram.WebApp;
-  const [photoAvatar, setPhotoAvatar] = avatar;
+function Profile({ firstName }) {
+    const [isVisibleProfile, setIsVisibleProfile] = useState(false);
+    const [balance, setBalance] = useState(0)
+    const [newBalance, setNewBalance] = useState();
+    const [photoAvatar, setPhotoAvatar] = avatar;
+    const tg = window.Telegram.WebApp;
+     const userId = tg.initDataUnsafe.user.id;
+  
+    
+    useEffect(() => {
+      const fetchUserBalance = async () => {
+        try {
+          const response = await axios.get(
+            `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
+          );
+          setNewBalance(response.data.balance);
+        } catch (err) {}
+      };
+    }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisibleProfile(true);
@@ -65,7 +81,7 @@ function Profile({ newBalance, setNewBalance, firstName, UserId }) {
             />
             <div className="profile-text">
               {firstName}
-              <div className="profile-id">ID: {UserId}</div>
+              <div className="profile-id">ID: {userId}</div>
             </div>
             <div className="profile-balance-text">
               Ваш баланс:

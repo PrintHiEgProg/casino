@@ -6,8 +6,9 @@ import rulleteClassic from "./rullete-classic.jpeg"
 import { useSpring, animated } from "react-spring";
 import { useNavigate } from "react-router-dom";
 import CheckYearsOld from "./CheckYearsOld.js";
-function Main({ newBalance, setNewBalance, firstName, UserId }) {
-  const tg = window.Telegram.WebApp;
+import axios from "axios";
+
+function Main({  firstName }) {
   const [isVisible, setIsVisible] = useState(true);
   const [isVisibleBalance, setIsVisibleBalance] = useState(false);
   const [isVisibleGames, setIsVisibleGames] = useState(false);
@@ -21,10 +22,24 @@ function Main({ newBalance, setNewBalance, firstName, UserId }) {
   //const [balance, setBalance] = useState(3724.24)
 
   const [balance, setBalance] = useState(0);
+  const [newBalance, setNewBalance] = useState();
   const [lastGame, setLastGame] = useState(false);
   const [lastGameName, setLastGameName] = useState(false);
   const [lastGamePhoto, setLastGamePhoto] = useState(false);
   const [lastGameURL, setLastGameURL] = useState(false);
+  const tg = window.Telegram.WebApp;
+  const userId = tg.initDataUnsafe.user.id;
+
+  useEffect(() => {
+    const fetchUserBalance = async () => {
+      try {
+        const response = await axios.get(
+          `https://printhiegprog-casino-server-fa31.twc1.net/api/get-balance/${userId}`
+        );
+        setNewBalance(response.data.balance);
+      } catch (err) {}
+    };
+  }, []);
 
   useEffect(() => {
     if (
